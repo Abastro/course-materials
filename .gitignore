@@ -1,0 +1,5 @@
+*.code-workspace
+
+_cache/
+dist-newstyle/
+cabal.project.local

@@ -18,7 +18,7 @@ main = hakyll $ do
     route $ setExtension "html"
     compile $ do
       posts <- loadAll "math-practice-1/posts/*"
-      let parCtx = perClassCtx "수학연습 1"
+      let parCtx = perClassCtx "math-practice-1" "수학연습 1"
           ctx = listField "posts" parCtx (pure posts) <> parCtx
       pandocCompiler
         >>= loadAndApplyTemplate "templates/post-list.html" ctx
@@ -27,7 +27,7 @@ main = hakyll $ do
 
   match "math-practice-1/posts/*" $ do
     route $ setExtension "html"
-    let ctx = perClassCtx "수학연습 1"
+    let ctx = perClassCtx "math-practice-1" "수학연습 1"
     compile $
       pandocCompiler
         >>= loadAndApplyTemplate "templates/post.html" ctx
@@ -37,5 +37,10 @@ main = hakyll $ do
   match "templates/*" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
-perClassCtx :: String -> Context String
-perClassCtx className = constField "class" className <> defaultContext
+perClassCtx :: String -> String -> Context String
+perClassCtx dirName className =
+  mconcat
+    [ constField "directory" dirName
+    , constField "class" className
+    , defaultContext
+    ]

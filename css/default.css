@@ -95,9 +95,9 @@ article .header {
 }
 
 /* Topleft logo text */
-.logo {
+.logo a {
   font-weight: bold;
-  color: #faa;
+  color: #caa;
   text-decoration: none;
   width: 100%;
 }

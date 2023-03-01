@@ -1,7 +1,6 @@
 *.code-workspace
 
 _cache/
-_site/
 
 dist-newstyle/
 cabal.project.local

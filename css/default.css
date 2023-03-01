@@ -1,42 +1,91 @@
 html {
   font-size: 62.5%;
+  background-color: #333;
 }
 
+/* Link colors */
+a {
+  color: #97b;
+}
+a:link {
+  color: #66f;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  background-color: #444;
+}
+th {
+  color: #999;
+}
+table, td, th {
+  border: 1px solid #666;
+  border-collapse: collapse;
+}
+
+/* Source code regions */
+div.sourceCode {
+  padding: 10px;
+  border: 1px solid #555;
+}
+
+p code {
+  background-color: #232629;
+  border:1px solid #333;
+}
+
+/* Body, Header */
 body {
   font-size: 1.6rem;
-  color: #000;
+  color: #ccc;
 }
 
 header {
   border-bottom: 0.2rem solid #000;
 }
 
+/* Navbar */
 nav {
   text-align: right;
 }
 
-nav a {
+nav a, nav a:link {
   font-size: 1.8rem;
   font-weight: bold;
-  color: black;
+  color: #789;
   text-decoration: none;
   text-transform: uppercase;
 }
 
+/* Footer */
 footer {
   margin-top: 3rem;
   padding: 1.2rem 0;
   border-top: 0.2rem solid #000;
   font-size: 1.2rem;
-  color: #555;
+}
+
+/* Header, paragraph */
+h1.title{
+  color: #acc;
+  text-align: center;
 }
 
 h1 {
   font-size: 2.4rem;
+  color: #8cc;
 }
 
 h2 {
   font-size: 2rem;
+  color: #bdd;
+  left: 5px
+}
+
+p {
+  position: relative;
+  left: 10px;
 }
 
 article .header {
@@ -45,10 +94,25 @@ article .header {
   color: #555;
 }
 
-.logo a {
+/* Topleft logo text */
+.logo {
   font-weight: bold;
-  color: #000;
+  color: #faa;
   text-decoration: none;
+  width: 100%;
+}
+
+.hakyll {
+  color: #999;
+}
+
+/* Front page logo */
+img[src*="#logo"] {
+  float: right;
+  margin: 10px;
+  width: 20rem;
+  position: relative;
+  bottom: 20px
 }
 
 @media (max-width: 319px) {
@@ -60,23 +124,16 @@ article .header {
   header {
     margin: 4.2rem 0;
   }
-  nav {
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
   footer {
     text-align: center;
   }
   .logo {
     text-align: center;
     margin: 1rem auto 3rem;
-  }
-  .logo a {
     font-size: 2.4rem;
   }
-  nav a {
-    display: block;
-    line-height: 1.6;
+  .hakyll {
+    text-align: center;
   }
 }
 
@@ -89,29 +146,22 @@ article .header {
   header {
     margin: 4.2rem 0;
   }
-  nav {
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
   footer {
     text-align: center;
   }
   .logo {
     text-align: center;
     margin: 1rem auto 3rem;
-  }
-  .logo a {
     font-size: 2.4rem;
   }
-  nav a {
-    display: inline;
-    margin: 0 0.6rem;
+  .hakyll {
+    text-align: center;
   }
 }
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 80rem;
     margin: 0 auto;
     padding: 0;
   }
@@ -119,23 +169,15 @@ article .header {
     margin: 0 0 3rem;
     padding: 1.2rem 0;
   }
-  nav {
-    margin: 0;
-    text-align: right;
-  }
-  nav a {
-    margin: 0 0 0 1.2rem;
-    display: inline;
-  }
   footer {
-    text-align: right;
+    margin: 1.2rem 0;
   }
   .logo {
+    text-align: center;
     margin: 0;
-    text-align: left;
+    font-size: 2.4rem;
   }
-  .logo a {
-    float: left;
-    font-size: 1.8rem;
+  .hakyll {
+    text-align: right;
   }
 }

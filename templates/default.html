@@ -3,27 +3,28 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta http-equiv="cache-control" content="max-age=0">
+        <meta http-equiv="cache-control" content="no-cache">        
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>$title$</title>
+        <title>Materials - $class$ - $title$</title>
         <link rel="stylesheet" href="/css/default.css" />
     </head>
     <body>
         <header>
             <div class="logo">
-                <a href="/">Notice for Class</a>
+                $class$
             </div>
-            <nav>
-                <a href="/">TODO</a>
-            </nav>
         </header>
 
         <main role="main">
-            <h1>$title$</h1>
+            <h1 class="title">$title$</h1>
             $body$
         </main>
 
         <footer>
-            Notice for Class
+            <div class="hakyll">
+                Materials for Classes
+            </div>
         </footer>
     </body>
 </html>

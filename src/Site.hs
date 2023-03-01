@@ -14,24 +14,28 @@ main = hakyll $ do
     route idRoute
     compile compressCssCompiler
 
-  match (fromList ["about.rst", "contact.markdown"]) $ do
+  match "math-practice-1/index.md" $ do
     route $ setExtension "html"
-    compile $
+    compile $ do
+      posts <- loadAll "math-practice-1/posts/*"
+      let parCtx = perClassCtx "수학연습 1"
+          ctx = listField "posts" parCtx (pure posts) <> parCtx
       pandocCompiler
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= loadAndApplyTemplate "templates/post-list.html" ctx
+        >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= relativizeUrls
 
-  match "posts/*" $ do
+  match "math-practice-1/posts/*" $ do
     route $ setExtension "html"
+    let ctx = perClassCtx "수학연습 1"
     compile $
       pandocCompiler
-        >>= loadAndApplyTemplate "templates/post.html" postCtx
-        >>= loadAndApplyTemplate "templates/default.html" postCtx
+        >>= loadAndApplyTemplate "templates/post.html" ctx
+        >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= relativizeUrls
 
   match "templates/*" $ compile templateBodyCompiler
 
 --------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
-  dateField "date" "%B %e, %Y" <> defaultContext
+perClassCtx :: String -> Context String
+perClassCtx className = constField "class" className <> defaultContext

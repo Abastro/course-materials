@@ -1,5 +1,5 @@
 packages:
-  class-materials.cabal
+  course-materials.cabal
 
 with-compiler: ghc-9.2.5
 

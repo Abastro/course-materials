@@ -26,7 +26,7 @@ main = hakyllWith config $ do
       let parCtx = perClassCtx "math-practice-1" "수학연습 1"
           ctx = listField "posts" parCtx (pure posts) <> parCtx
       pandocCompiler
-        >>= loadAndApplyTemplate "templates/post-list.html" ctx
+        >>= applyAsTemplate ctx
         >>= loadAndApplyTemplate "templates/default.html" ctx
         >>= relativizeUrls
 
